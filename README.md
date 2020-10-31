@@ -1,4 +1,5 @@
-Otsikko
-
-TAVALLISTA tekstiä... tähän *kursivointia* ja tähän **lihavointia** ja tähän ei 
-mitään
+#**Ohjelmistotekniikka, harjoitustyö**
+##**Tehtävät**
+###**Viikko 1**
+[gitlog.txt](https://github.com/jennavahtera/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](https://github.com/jennavahtera/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
