@@ -154,5 +154,17 @@ public class KassapaateTest {
         assertEquals(100000, kp.kassassaRahaa());
     }
     
+    @Test
+    public void rahanLataaminenKorttiNolla() {
+        kp.lataaRahaaKortille(kortti, 0);
+        assertEquals(1000, kortti.saldo());
+    }
+    
+    @Test
+    public void rahanLataaminenKassapaateNolla() {
+        kp.lataaRahaaKortille(kortti, 0);
+        assertEquals(100000, kp.kassassaRahaa());
+    }
+    
     
 }
