@@ -25,6 +25,7 @@ public class KassapaateTest {
     @Before
     public void setUp() {
         kp = new Kassapaate();
+        kortti = new Maksukortti(1000);
     }
     
     @Test
@@ -66,5 +67,66 @@ public class KassapaateTest {
     public void vaihtorahaOikein() {
         assertEquals(60,kp.syoEdullisesti(300));
         assertEquals(100,kp.syoMaukkaasti(500));
+    }
+    
+    @Test
+    public void edullinenVeloitusToimiiKassapaatteella() {
+        kp.syoEdullisesti(240);
+        assertEquals(100240, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void maukasVeloitusToimiiKassapaatteella() {
+        kp.syoMaukkaasti(500);
+        assertEquals(100400, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void edullinenVeloitusToimiiKortilla() {
+        kp.syoEdullisesti(kortti);
+        assertEquals(760, kortti.saldo());
+    }
+    
+    @Test
+    public void maukasVeloitusToimiiKortilla() {
+        kp.syoMaukkaasti(kortti);
+        assertEquals(600, kortti.saldo());
+    }
+    
+    @Test
+    public void maukkaatLisaantyy() {
+        kp.syoMaukkaasti(400);
+        assertEquals(1, kp.maukkaitaLounaitaMyyty());
+    }
+    
+    @Test
+    public void edullisetLisaantyy() {
+        kp.syoEdullisesti(400);
+        assertEquals(1, kp.edullisiaLounaitaMyyty());
+    }
+    
+    @Test
+    public void edullinenEiRiita() {
+        kp.syoMaukkaasti(kortti);
+        kp.syoMaukkaasti(kortti);
+        kp.syoEdullisesti(kortti);
+        assertEquals(200, kortti.saldo());
+        assertEquals(0, kp.edullisiaLounaitaMyyty());
+    }
+    
+    @Test
+    public void maukasEiRiita() {
+        kp.syoMaukkaasti(kortti);
+        kp.syoMaukkaasti(kortti);
+        kp.syoMaukkaasti(kortti);
+        assertEquals(200, kortti.saldo());
+        assertEquals(2, kp.maukkaitaLounaitaMyyty());
+    }
+    
+    @Test
+    public void kassanMaaraEiMuutuKortillaOstaessa() {
+        kortti.otaRahaa(200);
+        assertEquals(800, kortti.saldo());
+        assertEquals(100000, kp.kassassaRahaa());
     }
 }
