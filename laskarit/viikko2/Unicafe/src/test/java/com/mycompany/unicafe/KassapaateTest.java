@@ -20,6 +20,7 @@ import static org.junit.Assert.*;
 public class KassapaateTest {
     
     Kassapaate kp;
+    Maksukortti kortti;
     
     @Before
     public void setUp() {
@@ -38,7 +39,32 @@ public class KassapaateTest {
     }
     
     @Test
-    public void ostoToimii() {
-        
+    public void kassaOikeinEdullisenOstonJalkeen() {
+        kp.syoEdullisesti(300);
+        assertEquals(100240, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void kassaPysyySamanaEdullisestiMaksunJalkeen() {
+        kp.syoEdullisesti(200);
+        assertEquals(100000, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void kassaPysyySamanaMaukkaanOstonJalkeen() {
+        kp.syoMaukkaasti(200);
+        assertEquals(100000, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void kassaOikeinMaukkaanOstonJalkeen() {
+        kp.syoMaukkaasti(500);
+        assertEquals(100400, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void vaihtorahaOikein() {
+        assertEquals(60,kp.syoEdullisesti(300));
+        assertEquals(100,kp.syoMaukkaasti(500));
     }
 }
