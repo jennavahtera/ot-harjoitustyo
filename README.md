@@ -11,4 +11,5 @@
 ## Harjoitystyö
 
 [(Alustava) määrittelydokumentti](https://github.com/jennavahtera/ot-harjoitustyo/blob/master/harjoitustyo/m%C3%A4%C3%A4rittelydokumentti.txt)
+
 [Työaikakirjanpito](https://github.com/jennavahtera/ot-harjoitustyo/blob/master/harjoitustyo/ty%C3%B6aikakirjanpito.txt)

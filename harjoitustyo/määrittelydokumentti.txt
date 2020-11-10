@@ -1,0 +1,17 @@
+Sovelluksen tarkoitus:
+Sovelluksen avulla käyttäjä voi suunnitella ja aikatauluttaa opintojaan
+
+Käyttäjät:
+Sovellusta pystyy käyttämään monta käyttäjää, mutta kaikilla on sama rooli, eli normaali käyttäjä.
+
+Suunnitellut toiminnallisuudet:
+-Käyttäjä voi luoda oman käyttäjätunnuksen ja salasanan
+-Käyttäjä pystyy kirjautumaan sovellukseen, jos käyttäjätunnus ja salasana ovat oikein
+-Käyttäjä pystyy kirjautumaan ulos
+-Käyttäjä pystyy poistamaan käyttäjätunnuksen
+-Käyttäjä voi lisätä yhden kurssin ja kurssin sisälle tietoa, esim. luentojen ajat, tehtävien deadlinet..
+-Käyttäjä pystyy merkitsemään asian tehdyksi, jolloin se poistuu
+-Käyttäjä pystyy poistamaan kursseja ja tehtäviä
+-Käyttäjä pystyy valitsemaan, minkä kurssien tehtävät hän näkee
+-Käyttäjä pystyy lisäämään kurssiin ja sen tehtäviin kuvauksia
+Mahdollisesti myös lisää toimintoja tulossa, esim. tehtävien näyttäminen kalenterissa.
