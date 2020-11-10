@@ -129,4 +129,30 @@ public class KassapaateTest {
         assertEquals(800, kortti.saldo());
         assertEquals(100000, kp.kassassaRahaa());
     }
+    
+    @Test
+    public void rahanLataaminenKortti() {
+        kp.lataaRahaaKortille(kortti, 200);
+        assertEquals(1200, kortti.saldo());
+    }
+    
+    @Test
+    public void rahanLataaminenKassapaate() {
+        kp.lataaRahaaKortille(kortti, 200);
+        assertEquals(100200, kp.kassassaRahaa());
+    }
+    
+    @Test
+    public void rahanLataaminenKorttiEiToimi() {
+        kp.lataaRahaaKortille(kortti, -200);
+        assertEquals(1000, kortti.saldo());
+    }
+    
+    @Test
+    public void rahanLataaminenKassapaateEiToimi() {
+        kp.lataaRahaaKortille(kortti, -200);
+        assertEquals(100000, kp.kassassaRahaa());
+    }
+    
+    
 }
